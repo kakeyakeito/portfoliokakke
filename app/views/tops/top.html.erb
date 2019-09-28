@@ -8,36 +8,47 @@
 
 <div class="container">
 <h1>Ravorite Ranking</h1>
-
-<div class="row">
-    <div class="col-lg-12">
-        <h2>week</h2>
-
-        <div class="slider">
-            <div class="slider-1">1</div>
-            <div class="slider-2">2</div>
-            <div class="slider-3">3</div>
-            <div class="slider-4">4</div>
-            <div class="slider-5">5</div>
-        </div>
-
-    </div>
-</div>
-
-
     <div class="row">
         <div class="col-lg-12">
-            <h2>month</h2>
+            <h2>Top1~5</h2>
 
-            <div class="slider">
-                <div class="slider-1">1</div>
-                <div class="slider-2">2</div>
-                <div class="slider-3">3</div>
-                <div class="slider-4">4</div>
-                <div class="slider-5">5</div>
+
+                <div class="slider">
+                <% @posts.each do |post| %>
+                    <div class="slider-1">
+                        <div class="bbox wrapper" style=" display: flex;">
+                            <div class="nametitletag">
+                                <div class="name"><label>name</label>  / 
+                                    <% if current_user == post.user %>
+                                        <%= link_to "#{post.user.name}", mypage_user_path(current_user) %><br>
+                                    <% else %>
+                                        <%= link_to "#{post.user.name}", user_path(post.user) %><br>
+                                    <% end %>
+                                </div>
+                                <div class="title"><label>title</label>  /  <%= link_to post.title,  post_path(post.id) %></div>
+                                <div class="tags"><label>tags</label>
+                                    <p>
+                                        <% post.tags.each do |tag| %>
+                                        <%= link_to tag.tag, tag_post_index_post_path(tag.id) %>
+                                        <% end %>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timesection">
+                                いいね件数: <%= post.favorites.count %><br>
+                                <%= post.comment.count %>件コメント<br>
+                                <% if current_user == post.user %>
+                                    by<%= link_to "#{post.user.name}", mypage_user_path(current_user) %><br>
+                                <% else %>
+                                    by<%= link_to "#{post.user.name}", user_path(post.user) %><br>
+                                <% end %>
+                                <%= post.created_at.strftime('%Y/%m/%d') %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
             </div>
         </div>
-
     </div>
-
 </div>

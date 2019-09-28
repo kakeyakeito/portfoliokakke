@@ -5,7 +5,7 @@ class TopsController < ApplicationController
 	before_action :authenticate_user!, except: [:top, :all_top, :about]
 
 	def top
-		# ランキング機能
+		@posts = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
 	end
 
 	def about
