@@ -1,0 +1,21 @@
+<%= render "layouts/user_header"%>
+
+<div class="conteiner">
+	<div class="row">
+		<h1>DM一覧</h1>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+		<% current_user.rooms.each do |room| %>
+			<% room.users.each do |user|%>
+				<div class="DMbox">
+					<% unless user.name == current_user.name%>
+					<%= link_to user.name ,user_path(user) %><br>
+					<%= link_to "DMへ" ,room_path(room)  %>
+					<% end %>
+				</div>
+			<% end %>
+		<% end %>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>

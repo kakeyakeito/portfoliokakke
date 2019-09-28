@@ -1,0 +1,21 @@
+<%= render "layouts/user_header"%>
+<div class="container">
+  <h1>フォローされているUser一覧</h1>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <% @user.followers.each do |user| %>
+    	<div class="user_favorite_index">
+        <div class="username">
+  			  <% if current_user == user %>
+  		          <%= link_to "#{user.name}", mypage_user_path(current_user) %>
+  		    <% else %>
+  		          <%= link_to "#{user.name}", user_path(user) %>
+  		    <% end %>
+        </div>
+      </div>
+		<% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

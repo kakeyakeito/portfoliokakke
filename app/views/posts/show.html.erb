@@ -1,0 +1,55 @@
+<%= render "layouts/user_header"%>
+<div class="container containerpost">
+	<div class="row posttitle border">
+		<div class="col-md-10">
+			<h1><%= @post.title %></h1>
+		</div>
+		<div class="col-md-2">
+			<!-- ここに情報全部 -->
+			いいね件数: <%= link_to @post.favorites.count ,favorite_user_index_post_path%>
+			<%= render 'layouts/favorites', post: @post ,favorite: @favorite %>
+			<%= @comments.count %>件コメント<br>
+				<% if current_user == @user %>
+					by<%= link_to "#{@post.user.name}", mypage_user_path(current_user) %><br>
+				<% else %>
+					by<%= link_to "#{@post.user.name}", user_path(@user) %><br>
+				<% end %>
+			<%= @post.created_at.strftime('%Y/%m/%d') %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 tagcolor">
+			<!-- tag一覧 -->
+			<% @post.tags.each do |tag| %>
+				#<%= link_to tag.tag ,tag_post_index_post_path(tag.id) %><br>
+			<% end %>
+		</div>
+		<div class="col-md-9 commentcolor">
+			<!-- コメント -->
+			<% @comments.each do |comment|%>
+			<!-- コメント内容 -->
+			<div class="commentbox wrapper">
+				<div class="number"> <%= comment.number %></div>
+				<div class="replynumber"><% if comment.reply %>>><%= comment.reply %><% end %></div>
+				<div class="commenttext"> <%= comment.comment %></div>
+				<div class="information">
+					<% if current_user == comment.user %>
+						by<%= link_to "#{comment.user.name}", mypage_user_path(current_user) %><br>
+					<% else %>
+						by<%= link_to "#{comment.user.name}", user_path(comment.user) %><br>
+					<% end %>
+					<%= comment.created_at.strftime('%Y/%m/%d') %><br>
+					<%= link_to "このコメントに対して" ,reply_post_comment_path(@post ,comment.id) %><br>
+					<% if current_user == comment.user %>
+							<%= link_to "削除",post_comment_path(@post ,comment.id), method: :delete,date:{ confirm:"本当に削除しますか？"} %>
+					<% end %>
+				</div>
+			</div>
+			<% end %>
+			<!-- 丸 -->
+			<%= link_to new_post_comment_path(@post.id) do %>
+				<div class="commentpost">+</div>
+			<% end %>
+		</div>
+	</div>
+</div>

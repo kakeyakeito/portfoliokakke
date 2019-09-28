@@ -1,0 +1,35 @@
+<header>
+  <div class="container">
+    <nav>
+      <%= link_to root_path do%>
+      <div class="header-site-logo">
+        <font face="Lobster" size="5pt">Kakke</font>
+      </div>
+      <%end%>
+      <p>検索</p>
+      <%= form_tag(  admins_searches_search_path,:method => 'get') do %>
+      <%= select_tag 'number', options_for_select({User検索: 1, Tag検索: 2, Post検索: 3}) %>
+      <%= text_field_tag :content %>
+      <%= submit_tag 'Search' %>
+      <% end %>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+             <%= link_to "TOP", admins_tops_path,class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "Tag一覧",  admins_tags_path, class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "User管理", admins_users_path, class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "Post管理", admins_posts_path, class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "LOG OUT", destroy_admin_session_path, method: :delete, class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+        </ul>
+    </nav>
+  </div>
+</header>

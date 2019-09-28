@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <% unless current_user?(@user) %>
+        <div id="follow_form">
+        <% if current_user.following?(@user) %>
+          <%= render 'unfollow' %>
+        <% else %>
+          <%= render 'follow' %>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

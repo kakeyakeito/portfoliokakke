@@ -10,7 +10,34 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require cocoon
 //= require rails-ujs
+//= require jquery_ujs
+//= require jquery.slick
 //= require activestorage
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+
+$(document).on('turbolinks:load',function(){
+	$('.slider').slick({
+	    dots:true,
+	    slidesToShow: 1,
+	    slidesToScroll: 1,
+	    autoplay:true,
+	});
+});
+
+
+$(function() {
+    $(document).on("ajax:success", ".fav", function(e) {
+    	console.log(e.detail[0]);
+      if ($('#' + e.detail[0]).hasClass('fa-heart')) {
+        $('#' + e.detail[0]).removeClass('fa-heart').addClass('fa-heart-o');
+      } else {
+    $('#' + e.detail[0]).removeClass('fa-heart-o').addClass('fa-heart');
+      }
+    })
+  })

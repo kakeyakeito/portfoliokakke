@@ -1,0 +1,28 @@
+<%= render "layouts/admin_header"%>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<table class="table table-striped">
+				<tr>
+					<td>名前</td>
+					<td>メールアドレス</td>
+					<td>登録日</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<% @users.each do |user| %>
+				<tr>
+					 <!-- ,class: "glyphicon", style:"padding-top:15px;"@admin_header -->
+						<td><%=link_to "#{user.name}", admins_user_path(user)%></td>
+						<td><%=user.email%></td>
+						<td><%= user.created_at.strftime('%Y/%m/%d') %></td>
+						<td><%=link_to "編集", edit_admins_user_path(user),data: {"turbolinks" => false}%></td>
+						<td><%=link_to "削除",   admins_user_path(user), method: :delete , data: {confirm: '本当に消去しますか？'} %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>

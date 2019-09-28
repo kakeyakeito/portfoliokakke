@@ -1,0 +1,16 @@
+<%= render "layouts/admin_header"%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <% @user.followings.each do |user| %>
+      <div class="user_favorite_index">
+        <div class="username">
+          <%= link_to "#{user.name}", admins_user_path(user) %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

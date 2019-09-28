@@ -1,0 +1,60 @@
+
+<header>
+  <div class="container">
+    <nav>
+      <%= link_to root_path do%>
+      <div class="header-site-logo">
+        <font face="Lobster" size="5pt">Kakke</font>
+      </div>
+      <%end%>
+
+      <p>検索</p>
+      <%= form_tag( searches_search_path,:method => 'get') do %>
+      <%= select_tag 'number', options_for_select({User検索: 1, Tag検索: 2, Post検索: 3}) %>
+      <%= text_field_tag :content %>
+      <%= submit_tag 'Search' %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+             <%= link_to "POST", new_post_path(current_user.id),class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "ALL_TOP",  tops_all_top_path, class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "FOLLOW_TOP", tops_follow_top_path(current_user.id), class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "DM", rooms_path(current_user.id), class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li><%= link_to mypage_user_path(current_user.id) , style:"padding-top:15px;" do %><%= current_user.name %><% end %>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "ALL_TOP", tops_all_top_path,class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "LOG IN", new_user_session_path, class: "glyphicon", style:"padding-top:15px;" %>
+          </li>
+          <li>
+            <%= link_to "SIGN UP", new_user_registration_path, class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "ABOUT", tops_about_path, class: "glyphicon", style:"padding-top:15px;"%>
+          </li>
+          <li>
+            <%= link_to "未ログイン", new_user_session_path, class: "glyphicon", style:"padding-top:15px;" %>
+          </li>
+          </li>
+        </ul>
+      <% end %>
+    </nav>
+  </div>
+</header>

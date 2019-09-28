@@ -1,0 +1,14 @@
+<%= render "layouts/user_header"%>
+<div class="container">
+	<div class="row">
+		<h1>Comment To Comment</h1>
+		<%= form_with(model:Comment.new, url: reply_create_post_comment_path, local:true) do |f| %>
+		<div class="field commentform">
+			<%= f.hidden_field :reply, value: @reply.number %>
+			<h2 class="commenttitle">Reply</h2>
+			<%= f.text_field :comment %>
+			<%= f.submit 'Reply' %>
+			<% end %>
+		</div>
+	</div>
+</div>

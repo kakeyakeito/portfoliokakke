@@ -1,0 +1,193 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*
+ *= require slick
+ *= require slick-theme
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.status{
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+header{
+	background-color: #99CCCC;
+}
+
+li{
+	text-align: center;
+	display: inline;
+}
+
+h1{
+	text-align:center;
+}
+
+.bbox{
+	border:1px solid black;
+	margin-bottom: 50px;
+	padding: 20px;
+}
+
+.wrapper{
+    display: flex;
+}
+
+.timesection{
+	/*padding-left: 50%;*/
+}
+.commentform{
+	border:1px solid black;
+}
+
+.commenttitle{
+	padding-bottom: 30px;
+}
+
+.tagcolor{
+	background-color: #CCFFCC;
+	height: 100%;
+	border:1px solid black;
+}
+
+.commentpost{
+	background-color: #99FFFF;
+	border-radius: 50%;
+	height: 70px;
+	width: 70px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 50px;
+	position: fixed;
+	position: absolute;
+	bottom: 10%;
+	right: 10%;
+}
+
+.DMbox{
+	text-align: center;
+	padding: 20px;
+	margin: 10px;
+}
+
+.containerpost{
+	border:1px solid black;
+}
+
+.commentbox{
+	border:1px solid black;
+	background-color: #CCFF66;
+	height: 100%;
+	padding: 5px 0;
+	margin: 10px 0;
+}
+
+.commentform{
+	text-align: center;
+	padding: 100px 0px;
+}
+
+.box{
+	border:1px solid black;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+
+
+
+
+.prof{
+	margin-bottom: 20px;
+	border:1px solid black;
+	padding: 20px;
+	background-color: #FFFFCC;
+}
+
+.border{
+	border:1px solid black;
+}
+
+.user_favorite_index{
+	border:1px solid black;
+	background-color: #CCFFFF;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+
+
+.slider-1{
+	height: 100px;
+	background-color: red;
+}
+.slider-2{
+	height: 100px;
+	background-color: white;
+}
+
+.slider-3{
+	height: 100px;
+	background-color: blue;
+}
+
+.slider-4{
+	height: 100px;
+	background-color: green;
+}
+
+.slider-5{
+	height: 100px;
+	background-color: yellow;
+}
+
+.end-user-edit-form{
+	margin:0 auto;
+	width:50%;
+}
+
+.number{
+	padding-right: 50px;
+}
+
+.replynumber{
+	padding-right: 50px;
+}
+
+.commenttext{
+	padding-right: 50px;
+}
+
+.fa-heart {
+    color: red;
+}
+
+.tagindex{
+	border:1px solid black;
+	text-align:center;
+	padding:5px;
+	margin: 10px;
+}
+
+.main{
+	border:1px solid black;
+	margin-bottom: 50px;
+}

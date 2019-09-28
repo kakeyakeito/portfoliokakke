@@ -1,0 +1,13 @@
+<%= render "layouts/user_header"%>
+<div class="container">
+	<div class="row">
+		<h1>Comment To DM</h1>
+		<%= form_with(model:Message.new, url:  messsages_path, local:true) do |f| %>
+		<div class="field commentform">
+			<h2 class="commenttitle">DM comment</h2>
+			<%= f.text_field :comment %>
+			<%= f.submit 'comment' %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<%= render "layouts/user_header"%>
+<div class="container">
+	<h1>プロフィール編集</h1>
+	<div class="main">
+		<div class="end-user-edit-form">
+    		<table class="end-user-edit-table">
+    		 <%= form_for(@user) do |f| %>
+    			<tr><td><label>Name</label><br>
+    				<%= f.text_field :name ,placeholder:"田中建造"%>
+    			</td></tr>
+    			<tr><td><label>Email</label><br>
+    				<%= f.text_field :email ,placeholder:"sample@icloud.com"%>
+    			</td></tr>
+
+    			<tr><td><%= f.submit "Update"%></td></tr>
+    		  <% end %>
+    		</table>
+		</div>
+	</div>
+</div>

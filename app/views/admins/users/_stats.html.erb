@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <% @user ||= current_user %>
+      <div class="stats">
+        <a href=<%= following_admins_user_path(@user) %>>
+          <strong id="following" class="stat">
+            <%= @user.followings.count %>
+          </strong>
+          following
+        </a>
+        <a href=<%= followers_admins_user_path(@user) %>>
+          <strong id="followers" class="stat">
+            <%= @user.followers.count %>
+          </strong>
+          followers
+        </a>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

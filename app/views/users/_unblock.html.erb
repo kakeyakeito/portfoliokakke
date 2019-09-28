@@ -1,0 +1,3 @@
+<%= form_for(current_user.blocking_block_relationships.find_by(blocking_id: @user.id), html: { method: :delete }) do |f| %>
+  <%= f.submit "Unblock", class: "btn btn-large follow-btn" %>
+<% end %>
