@@ -32,7 +32,7 @@
 					<% end %>
 				<% end %>
 			</div>
-			<div class="col-md-2"><%= link_to "Favorite index" ,  favorite_index_user_path(current_user.id) ,class:"btn btn-success" %></div>
+			<div class="col-md-2"><%= link_to "Favorite index" ,  favorite_index_user_path(@user.id) ,class:"btn btn-success" %></div>
 			<div class="col-md-2"><%= render 'follow_form' %></div>
 			<div class="col-md-2"></div>
 			<div class="col-md-2"><%= render 'block_form' %></div>

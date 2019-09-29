@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 	    end
 	end
 
+
 	def mypage
 		@user = User.find(params[:id])
 		@posts = @user.posts.page(params[:page]).per(PER)
