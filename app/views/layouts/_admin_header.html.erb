@@ -1,11 +1,9 @@
 <header>
   <div class="container">
     <nav>
-      <%= link_to root_path do%>
       <div class="header-site-logo">
-        <font face="Lobster" size="5pt">Kakke</font>
+        <font face="Lobster" size="5pt">Twipos</font>
       </div>
-      <%end%>
       <p>検索</p>
       <%= form_tag(  admins_searches_search_path,:method => 'get') do %>
       <%= select_tag 'number', options_for_select({User検索: 1, Tag検索: 2, Post検索: 3}) %>
