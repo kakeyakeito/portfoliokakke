@@ -21,9 +21,11 @@ class TopsController < ApplicationController
 
 		if user_signed_in? && current_user.blockeds.exists?
 			@users = current_user.blockeds
+			a = []
 			@users.each do |user|
-				@posts = Post.where.not(user_id: user.id).page(params[:page]).per(PER)
+				a << user.id
 			end
+			@posts = Post.where.not(user_id: a).page(params[:page]).per(PER)
 		else
 			@posts = Post.all.page(params[:page]).per(PER)
 		end
