@@ -6,6 +6,8 @@ class TopsController < ApplicationController
 
 	def top
 		@posts = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+		@week_rankings = Post.find(Favorite.where("favorites.created_at >= ?" , 1.week.ago).group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+		@month_rankings = Post.find(Favorite.where("favorites.created_at >= ?" , 1.month.ago).group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
 	end
 
 	def about
